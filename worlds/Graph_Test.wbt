@@ -1,0 +1,117 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Roughcast.proto"
+
+WorldInfo {
+  contactProperties [
+    ContactProperties {
+      bounce 0.9
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.0944
+  position 0 0 14
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 8 8
+  wallHeight 0.2
+}
+Wall {
+  translation -1.5 0 0
+  name "wall_v1"
+  size 0.05 3 0.2
+}
+Wall {
+  translation 1.5 -1.0 0
+  name "wall_v2"
+  size 0.05 2.5 0.2
+}
+Wall {
+  translation 0 1.5 0
+  rotation 0 0 1 1.5708
+  name "wall_h1"
+  size 0.05 3 0.2
+}
+Wall {
+  translation -0.5 -1.5 0
+  rotation 0 0 1 1.5708
+  name "wall_h2"
+  size 0.05 2 0.2
+}
+Wall {
+  translation 2.5 2.0 0
+  name "wall_v3"
+  size 0.05 2 0.2
+}
+Wall {
+  translation -2.5 -2.5 0
+  rotation 0 0 1 0.785398
+  name "wall_diag"
+  size 0.05 1.5 0.2
+}
+Robot {
+  translation 0.5 -0.8 0.11992014532088205
+  rotation 0 0 1 0.3
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 1 0 1
+        roughness 0.3
+        metalness 0
+        emissiveColor 1 0 1
+      }
+      geometry Sphere {
+        radius 0.12
+      }
+    }
+  ]
+  name "ball1"
+  boundingObject Sphere {
+    radius 0.12
+  }
+  physics Physics {
+    density -1
+    mass 0.05
+  }
+  controller "ball_mover"
+  controllerArgs [
+    "0.25"
+    "0.18"
+  ]
+  supervisor TRUE
+}
+E-puck {
+  translation -3.0 -3.0 0
+  rotation 0 0 1 0.785398
+  controller "slam_controller"
+  turretSlot [
+    Lidar {
+      translation 0 0 0.034
+      horizontalResolution 360
+      fieldOfView 6.2832
+      numberOfLayers 1
+      maxRange 3
+    }
+    GPS {
+    }
+    Compass {
+    }
+    Camera {
+      translation 0.03 0 0.025
+      name "slam_camera"
+      fieldOfView 0.84
+      width 160
+      height 120
+    }
+  ]
+}

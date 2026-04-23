@@ -1,0 +1,223 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+  title "SLAM Milestone 2 — E-puck 2m x 2m Arena"
+}
+Viewpoint {
+  orientation -0.4493432677670869 -0.5966832288482455 0.6648757418673269 4.588160238627016
+  position 0.8007597191657233 2.5695988497463857 3.668774033527357
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  translation 1 1 0
+  floorSize 2 2
+  floorAppearance PBRAppearance {
+    baseColor 0.75 0.8 0.88
+    roughness 1
+    metalness 0
+  }
+  wallThickness 0.02
+  wallAppearance PBRAppearance {
+    baseColor 0.35 0.35 0.35
+    roughness 1
+    metalness 0
+  }
+}
+Solid {
+  translation 0.55 0.45 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6 0.5 0.35
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.5 0.02 0.1
+      }
+    }
+  ]
+  name "iwall_1"
+  boundingObject Box {
+    size 0.5 0.02 0.1
+  }
+}
+Solid {
+  translation 1.5 0.85 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6 0.5 0.35
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.45 0.02 0.1
+      }
+    }
+  ]
+  name "iwall_2"
+  boundingObject Box {
+    size 0.45 0.02 0.1
+  }
+}
+Solid {
+  translation 0.9 1.45 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6 0.5 0.35
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.5 0.02 0.1
+      }
+    }
+  ]
+  name "iwall_3"
+  boundingObject Box {
+    size 0.5 0.02 0.1
+  }
+}
+Solid {
+  translation 0.35 1.55 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6 0.5 0.35
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.02 0.4 0.1
+      }
+    }
+  ]
+  name "iwall_4"
+  boundingObject Box {
+    size 0.02 0.4 0.1
+  }
+}
+Solid {
+  translation 1.55 1.25 0.05
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.6 0.5 0.35
+        roughness 1
+        metalness 0
+      }
+      geometry Box {
+        size 0.02 0.4 0.1
+      }
+    }
+  ]
+  name "iwall_5"
+  boundingObject Box {
+    size 0.02 0.4 0.1
+  }
+}
+Robot {
+  translation 0.4 0.4 0.029921597525562907
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.9 0.1 0.1
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.03
+      }
+    }
+  ]
+  name "ball1"
+  boundingObject Sphere {
+    radius 0.03
+  }
+  physics Physics {
+    density -1
+    mass 0.05
+  }
+  controller "ball_mover"
+  controllerArgs [
+    "0.25"
+    "0.18"
+  ]
+  supervisor TRUE
+  linearVelocity 0 0 -6.059644860200945e-07
+}
+Robot {
+  translation 1.6 1.2 0.029921597525562907
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.95 0.5 0.05
+        roughness 0.3
+        metalness 0
+      }
+      geometry Sphere {
+        radius 0.03
+      }
+    }
+  ]
+  name "ball2"
+  boundingObject Sphere {
+    radius 0.03
+  }
+  physics Physics {
+    density -1
+    mass 0.05
+  }
+  controller "ball_mover"
+  controllerArgs [
+    "-0.20"
+    "0.22"
+  ]
+  supervisor TRUE
+  linearVelocity 0 0 -6.059644860200945e-07
+}
+E-puck {
+  hidden position_0_0 454.88198355923157
+  hidden position_0_1 439.5933527328388
+  hidden linearVelocity_0 0.07886733200015367 0.09792378383794256 -2.3838863209870265e-09
+  hidden angularVelocity_0 -0.00697489597333907 0.005617542051794695 -1.0060679911690597e-09
+  hidden rotation_1 0 1 0 2.4926414423013448
+  hidden linearVelocity_1 0.07889542146621352 0.09795865650566832 -1.0209735290830498e-10
+  hidden angularVelocity_1 -4.8979328429008335 3.9447710502808606 9.5946500525816e-08
+  hidden rotation_2 0 -1 0 0.22961876973224432
+  hidden linearVelocity_2 0.07889541748907164 0.09795865955192089 7.039702156444449e-11
+  hidden angularVelocity_2 -4.897932963604591 3.9447709004040368 -9.556898852600472e-08
+  translation 1.5942239188101828 0.4579113422929831 -6.396200144277199e-05
+  rotation 7.807896313977123e-05 -0.00016313840580993718 -0.9999999836447679 -0.8927743712494189
+  controller "slam_controller"
+  turretSlot [
+    Lidar {
+      translation 0 0 0.034
+      horizontalResolution 360
+      fieldOfView 6.2832
+      numberOfLayers 1
+      maxRange 1.5
+    }
+    GPS {
+    }
+    Compass {
+    }
+    Camera {
+      translation 0.03 0 0.025
+      name "slam_camera"
+      fieldOfView 0.84
+      width 160
+      height 120
+    }
+  ]
+}

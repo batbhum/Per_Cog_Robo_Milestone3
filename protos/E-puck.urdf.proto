@@ -1,0 +1,191 @@
+#VRML_SIM R2025a utf8
+# license: Apache License 2.0
+# license url: http://www.apache.org/licenses/LICENSE-2.0
+# This is a proto file for Webots for the C:/Users/panap/Downloads/E-puck.urdf
+# Extracted from: C:\Users\panap\Downloads\E-puck.urdf
+
+PROTO C:/Users/panap/Downloads/E-puck.urdf [
+  field  SFVec3f     translation     0 0 0
+  field  SFRotation  rotation        0 0 1 0
+  field  SFString    name            "C:/Users/panap/Downloads/E-puck.urdf"  # Is `Robot.name`.
+  field  SFString    controller      "void"                                  # Is `Robot.controller`.
+  field  MFString    controllerArgs  []                                      # Is `Robot.controllerArgs`.
+  field  SFString    customData      ""                                      # Is `Robot.customData`.
+  field  SFBool      supervisor      FALSE                                   # Is `Robot.supervisor`.
+  field  SFBool      synchronization TRUE                                    # Is `Robot.synchronization`.
+  field  SFBool      selfCollision   FALSE                                   # Is `Robot.selfCollision`.
+  field  SFBool      staticBase      TRUE                                    # Defines if the robot base should be pinned to the static environment.
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    controller IS controller
+    controllerArgs IS controllerArgs
+    customData IS customData
+    supervisor IS supervisor
+    synchronization IS synchronization
+    selfCollision IS selfCollision
+    children [
+      Pose {
+        translation 0.000000 0.000000 0.025000
+        rotation 1.000000 0.000000 0.000000 3.141589
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.500000 0.500000 0.500000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Cylinder {
+              radius 0.037
+              height 0.045
+            }
+          }
+        ]
+      }
+      Pose {
+        translation 0.000000 0.000000 0.005100
+        children [
+          Shape {
+            appearance PBRAppearance {
+              baseColor 0.500000 0.500000 0.500000
+              roughness 1.000000
+              metalness 0
+            }
+            geometry Box {
+               size 0.050000 0.040000 0.010000
+            }
+          }
+        ]
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis 0.000000 1.000000 0.000000
+          anchor 0.000000 0.000000 0.020000
+        }
+        device [
+          RotationalMotor {
+            name "right wheel motor"
+            maxVelocity 6.28
+            maxTorque 10.0
+          }
+          PositionSensor {
+            name "right wheel motor_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.000000 0.000000 0.020000
+          rotation 0.000000 1.000000 0.000000 1.053214
+          children [
+            Pose {
+              translation 0.000000 -0.026000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    radius 0.02
+                    height 0.005
+                  }
+                }
+              ]
+            }
+          ]
+          name "right wheel"
+          boundingObject Pose {
+            translation 0.000000 -0.026000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.02
+                height 0.005
+              }
+            ]
+          }
+          physics Physics {
+          }
+        }
+      }
+      HingeJoint {
+        jointParameters HingeJointParameters {
+          axis -0.000001 1.000000 -0.000000
+          anchor 0.000000 -0.026000 0.020000
+        }
+        device [
+          RotationalMotor {
+            name "left wheel motor"
+            maxVelocity 6.28
+            maxTorque 10.0
+          }
+          PositionSensor {
+            name "left wheel motor_sensor"
+          }
+        ]
+        endPoint Solid {
+          translation 0.000000 -0.026000 0.020000
+          rotation -0.000000 1.000000 -0.000000 4.554553
+          children [
+            Pose {
+              translation 0.000000 0.026000 0.000000
+              rotation 1.000000 0.000000 0.000000 1.570796
+              children [
+                Shape {
+                  appearance PBRAppearance {
+                    baseColor 0.500000 0.500000 0.500000
+                    roughness 1.000000
+                    metalness 0
+                  }
+                  geometry Cylinder {
+                    radius 0.02
+                    height 0.005
+                  }
+                }
+              ]
+            }
+          ]
+          name "left wheel"
+          boundingObject Pose {
+            translation 0.000000 0.026000 0.000000
+            rotation 1.000000 0.000000 0.000000 1.570796
+            children [
+              Cylinder {
+                radius 0.02
+                height 0.005
+              }
+            ]
+          }
+          physics Physics {
+          }
+        }
+      }
+    ]
+    name IS name
+    boundingObject Group {
+      children [
+        Pose {
+          translation 0.000000 0.000000 0.025000
+          rotation 1.000000 0.000000 0.000000 3.141589
+          children [
+            Cylinder {
+              radius 0.037
+              height 0.045
+            }
+          ]
+        }
+        Pose {
+          translation 0.000000 0.000000 0.005100
+          children [
+            Box {
+               size 0.050000 0.040000 0.010000
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
