@@ -93,14 +93,14 @@ These snippets highlight the engine behind our new Camera-LiDAR fusion pipeline.
 ---
 
 ### 🎯 2. Live Dashboard & Active Dynamic Filtering
-![Live Dashboard and Filtering](Screenshot_2569-04-24_at_21.18.26.jpg)
+![Live Dashboard and Filtering](Screenshot_2569-04-24_at_21.18.26.png)
 
 This demonstrates the entire system functioning flawlessly in real-time. On the right, the camera successfully identifies the moving magenta ball. On the left, our new scrolling viewport renders the Graph Map. The most critical metric is at the bottom: **`DYN: 77 rays excluded`**. This is absolute visual proof that the dynamic object filter is actively catching the moving ball and rejecting those LiDAR rays to keep the static map perfectly clean.
 
 ---
 
 ### 🗺️ 3. The Graph-Based Map Proof
-![Graph Map Node Growth](Screenshot_2569-04-24_at_21.16.07.jpg)
+![Graph Map Node Growth](Screenshot_2569-04-24_at_21.16.07.png)
 
 This proves our transition away from fixed, bounded NumPy arrays. Looking at the Webots console output, the **`nodes=`** value continuously grows as time passes (scaling from 10,229 up to over 15,016). Because a standard array is a fixed grid, its size never changes. This dynamically increasing node count proves the map is functioning as a flexible Dictionary Graph, allowing the robot to map an unbounded environment without relying on hardcoded GPS offsets!
 
