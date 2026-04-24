@@ -73,6 +73,38 @@ This repository contains the Milestone 3 submission for the Perception of Cognit
 
 ---
 
+## 👥 Team Members
+Panapon (6638114021)
+
+Kittibhum (6638018521)
+
+Nuntis (6638103121)
+
+
+Course: 2147331.i Perception of Cognitive Robots — Chulalongkorn University
+
+---
+### 🧠 1. Sensor Fusion Configuration
+![Sensor Fusion Params 1](Screenshot_2569-04-24_at_21.19.48.png)
+![Sensor Fusion Params 2](Screenshot_2569-04-24_at_21.19.37.png)
+
+These snippets highlight the engine behind our new Camera-LiDAR fusion pipeline. Instead of relying on black-box libraries, the 3-signal logic was manually programmed from scratch. Key parameters include `diff_threshold` for camera frame-differencing (Signal 1), `lidar_jump_threshold` for scan-to-scan range jumps (Signal 2), and `free_space_threshold` for the map consistency check (Signal 3).
+
+---
+
+### 🎯 2. Live Dashboard & Active Dynamic Filtering
+![Live Dashboard and Filtering](Screenshot_2569-04-24_at_21.18.26.jpg)
+
+This demonstrates the entire system functioning flawlessly in real-time. On the right, the camera successfully identifies the moving magenta ball. On the left, our new scrolling viewport renders the Graph Map. The most critical metric is at the bottom: **`DYN: 77 rays excluded`**. This is absolute visual proof that the dynamic object filter is actively catching the moving ball and rejecting those LiDAR rays to keep the static map perfectly clean.
+
+---
+
+### 🗺️ 3. The Graph-Based Map Proof
+![Graph Map Node Growth](Screenshot_2569-04-24_at_21.16.07.jpg)
+
+This proves our transition away from fixed, bounded NumPy arrays. Looking at the Webots console output, the **`nodes=`** value continuously grows as time passes (scaling from 10,229 up to over 15,016). Because a standard array is a fixed grid, its size never changes. This dynamically increasing node count proves the map is functioning as a flexible Dictionary Graph, allowing the robot to map an unbounded environment without relying on hardcoded GPS offsets!
+
+
 ## 🚀 How to Run the Simulation
 
 **1. Prerequisites:**
@@ -89,17 +121,3 @@ Open `worlds/Graph_Test.wbt` in Webots. The robot starts at `(-3, -3)` in an 8×
 Open `worlds/Slam_Maze.wbt` in Webots. Ensure `TARGET_X` and `TARGET_Y` in `slam_controller.py` are set to `(2.5, 2.5)`.
 
 In both cases: ensure the E-puck's controller is set to `slam_controller`, then hit Play. The PyGame dashboard will launch automatically.
-
----
-
-## 👥 Team Members
-Panapon (6638114021)
-
-Kittibhum (6638018521)
-
-Nuntis (6638103121)
-
-
-Course: 2147331.i Perception of Cognitive Robots — Chulalongkorn University
-# Per_Cog_Robo_Milestone3
-# Per_Cog_Robo_Milestone3
